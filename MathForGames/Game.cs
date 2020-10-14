@@ -12,7 +12,7 @@ namespace MathForGames
         private static bool _gameOver = false;
         private Scene _scene;
 
-        public static ConsoleColor DefaultColor { get; set; } = ConsoleColor.Cyan;
+        public static ConsoleColor DefaultColor { get; set; } = ConsoleColor.White;
 
         //Static function used to set game over without an instance of game.
         public static void SetGameOver(bool value)

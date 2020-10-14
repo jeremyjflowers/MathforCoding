@@ -6,7 +6,7 @@ namespace MathForGames
 {
     class Player : Entity
     {
-        public Player(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Magenta) : base(x,y,icon)
+        public Player(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Yellow) : base(x,y,icon)
         {
 
         }

@@ -20,7 +20,7 @@ namespace MathForGames
             //Copied values from orginal array to new array
             for(int i = 0; i < _entities.Length; i++)
             {
-                appendedArray[i] = _entities[1];
+                appendedArray[i] = _entities[i];
             }
             //Sets the class value in the new array to be the entity we want to add
             appendedArray[_entities.Length] = entity;

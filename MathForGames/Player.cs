@@ -34,6 +34,7 @@ namespace MathForGames
                     _velocity.Y = 0;
                     break;
             }
+
             base.Draw();
         }
     }

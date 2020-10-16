@@ -37,7 +37,7 @@ namespace MathForGames
             }
         }
         
-        public Entity(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Magenta)
+        public Entity(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Green)
         {
             _icon = icon;
             _position = new Vector2(x, y);
@@ -52,8 +52,7 @@ namespace MathForGames
 
         public virtual void Update()
         {
-            _position.X += _velocity.X;
-            _position.Y += _velocity.Y;
+            _position += _velocity * 100;
             _position.X = Math.Clamp(_position.X, 0, Console.WindowWidth-1);
             _position.Y = Math.Clamp(_position.Y, 0, Console.WindowHeight-1);
         }
@@ -63,7 +62,6 @@ namespace MathForGames
             Console.ForegroundColor = _color;
             Console.SetCursorPosition((int)_position.X, (int)_position.Y);
             Console.Write(_icon);
-            Console.ForegroundColor = Game.DefaultColor;
         }
 
         public virtual void End()

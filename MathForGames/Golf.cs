@@ -11,6 +11,15 @@ namespace MathForGames
 
         }
 
+        public void Collision()
+        {
 
+        }
+
+        public override void Draw()
+        {
+
+            base.Draw();
+        }
     }
 }

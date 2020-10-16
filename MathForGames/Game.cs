@@ -34,12 +34,12 @@ namespace MathForGames
         //Called when the game begins. Use this for initialization.
         public void Start()
         {
+            Console.CursorVisible = false;
             _scene = new Scene();
-            Entity _entity = new Entity(0,0, '☺', ConsoleColor.Cyan);
-            _entity.Velocity.X = 1;
-            Player player = new Player(0, 1, '@', ConsoleColor.Yellow);
+            Entity entity = new Entity(110, 27, 'O', ConsoleColor.Green);
+            Player player = new Player(0, 0, '∙', ConsoleColor.Cyan);
+            _scene.AddEntity(entity);
             _scene.AddEntity(player);
-            _scene.AddEntity(_entity);
         }
 
         //Called every frame.

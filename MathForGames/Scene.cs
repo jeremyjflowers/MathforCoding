@@ -7,7 +7,9 @@ namespace MathForGames
     class Scene
     {
         private Entity[] _entities;
-        
+
+        public bool Started { get; private set; }
+
         public Scene()
         {
             _entities = new Entity[0];
@@ -54,6 +56,8 @@ namespace MathForGames
                 else
                 {
                     entityRemoved = true;
+                    if (_entities[i].Started)
+                        _entities[i].End();
                 }
             }
             //Set the old array to be the newArray
@@ -86,6 +90,8 @@ namespace MathForGames
                 else
                 {
                     entityRemoved = true;
+                    if (entity.Started)
+                        entity.End();
                 }
             }
             //Set the old array to be the new array
@@ -96,16 +102,16 @@ namespace MathForGames
 
         public virtual void Start()
         {
-            for(int i = 0; i < _entities.Length; i++)
-            {
-                _entities[i].Start();
-            }
+            Started = true;
         }
 
         public virtual void Update()
         {
             for (int i = 0; i < _entities.Length; i++)
             {
+                if (!_entities[i].Started)
+                    _entities[i].Start();
+
                 _entities[i].Update();
             }
         }
@@ -122,8 +128,11 @@ namespace MathForGames
         {
             for (int i = 0; i < _entities.Length; i++)
             {
-                _entities[i].End();
+                if(_entities[i].Started)
+                    _entities[i].End();
             }
+
+            Started = false;
         }
     }
 }

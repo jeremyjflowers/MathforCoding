@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Raylib_cs;
+using MathLibrary;
 
 namespace MathForGames
 {
     class Player : Entity
     {
-        public Player(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Yellow) : base(x,y,icon)
+        public Player(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Yellow) : base(x, y, icon, color)
+        {
+
+        }
+
+        public Player(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White) : base(x, y, rayColor, icon, color)
         {
 
         }
@@ -28,6 +35,9 @@ namespace MathForGames
                     break;
                 case ConsoleKey.S:
                     _velocity.Y = 1;
+                    break;
+                case ConsoleKey.Spacebar:
+                    Game.SetCurrentScene(1);
                     break;
                 default:
                     _velocity.X = 0;

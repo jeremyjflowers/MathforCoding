@@ -13,7 +13,6 @@ namespace MathForGames
         private static bool _gameOver = false;
         private static Scene[] _scenes;
         private static int _currentSceneIndex;
-
         public static ConsoleColor DefaultColor { get; set; } = ConsoleColor.White;
 
         //Static function used to set game over without an instance of game.
@@ -79,9 +78,6 @@ namespace MathForGames
             if (index < 0 || index >= _scenes.Length)
                 return;
 
-            if(_scenes[_currentSceneIndex].Started)
-                _scenes[_currentSceneIndex].End();
-
             _currentSceneIndex = index;
         }
 
@@ -112,6 +108,7 @@ namespace MathForGames
             Scene scene1 = new Scene();
             Scene scene2 = new Scene();
 
+            Enemy enemy = new Enemy(10, 10, Color.GOLD, '♀', ConsoleColor.Yellow);
             Player player = new Player(0, 0, Color.GOLD, '*', ConsoleColor.Yellow);
             Entity entity = new Entity(20, 6, Color.LIME, 'O', ConsoleColor.Green);
             scene1.AddEntity(player);
@@ -123,6 +120,7 @@ namespace MathForGames
 
             startingSceneIndex = AddScene(scene1);
             AddScene(scene2);
+            player.Speed = 5;
 
             SetCurrentScene(startingSceneIndex);
         }
@@ -164,7 +162,6 @@ namespace MathForGames
                 Draw();
                 while (Console.KeyAvailable)
                     Console.ReadKey(true);
-                Thread.Sleep(201);
             }
 
             End();

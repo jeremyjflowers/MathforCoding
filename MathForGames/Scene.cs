@@ -109,7 +109,7 @@ namespace MathForGames
         {
             for (int i = 0; i < _entities.Length; i++)
             {
-                if (!_entities[i].Started)
+                if(!_entities[i].Started)
                     _entities[i].Start();
 
                 _entities[i].Update();
@@ -128,7 +128,7 @@ namespace MathForGames
         {
             for (int i = 0; i < _entities.Length; i++)
             {
-                if(_entities[i].Started)
+                if(!_entities[i].Started)
                     _entities[i].End();
             }
 

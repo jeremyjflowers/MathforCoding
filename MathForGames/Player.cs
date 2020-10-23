@@ -61,7 +61,7 @@ namespace MathForGames
         //    base.Draw();
         //}
 
-        public override void Update()
+        public override void Update(float deltaTime)
         {
             int xVelocity = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_A))
                 + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_D));
@@ -70,9 +70,9 @@ namespace MathForGames
                 + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_S));
 
             Velocity = new Vector2(xVelocity, yVelocity);
-
             Velocity = Velocity.Normalized * Speed;
-            base.Update();
+
+            base.Update(deltaTime);
         }
     }
 }

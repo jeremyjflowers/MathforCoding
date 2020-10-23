@@ -93,6 +93,7 @@ namespace MathForGames
                     (int)((Position.Y + Forward.Y) * 32), 
                     Color.WHITE
                 );
+
             Console.ForegroundColor = _color;
             Console.SetCursorPosition((int)_position.X, (int)_position.Y);
             Console.Write(_icon);

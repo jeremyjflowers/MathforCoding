@@ -13,6 +13,12 @@ namespace MathForGames
         private static bool _gameOver = false;
         private static Scene[] _scenes;
         private static int _currentSceneIndex;
+        
+        public static int CurrentSceneIndex
+        {
+            get { return _currentSceneIndex; }
+        }
+
         public static ConsoleColor DefaultColor { get; set; } = ConsoleColor.White;
 
         //Static function used to set game over without an instance of game.
@@ -101,37 +107,37 @@ namespace MathForGames
         {
             //Creates a new window for raylib
             Raylib.InitWindow(1024, 760, "Math For Games");
-            //Sets the framerate
-            Raylib.SetTargetFPS(60);
-
             Console.CursorVisible = false;
             Scene scene1 = new Scene();
             Scene scene2 = new Scene();
 
-            Enemy enemy = new Enemy(10, 10, Color.GOLD, '♀', ConsoleColor.Yellow);
-            Player player = new Player(0, 0, Color.GOLD, '*', ConsoleColor.Yellow);
-            Entity entity = new Entity(20, 6, Color.LIME, 'O', ConsoleColor.Green);
+            Player player = new Player(0, 0, Color.GOLD, '@', ConsoleColor.Yellow);
+            Entity entity = new Entity(20, 6, Color.LIME, '■', ConsoleColor.Green);
+            Enemy enemy = new Enemy(10, 10, Color.GOLD, '?', ConsoleColor.Yellow);
+            enemy.Target = player;
+            entity.Velocity.X = 1;
             scene1.AddEntity(player);
             scene1.AddEntity(entity);
+            scene1.AddEntity(enemy);
 
             scene2.AddEntity(player);
+            player.Speed = 5;
 
             int startingSceneIndex = 0;
 
             startingSceneIndex = AddScene(scene1);
             AddScene(scene2);
-            player.Speed = 5;
 
             SetCurrentScene(startingSceneIndex);
         }
 
         //Called every frame.
-        public void Update()
+        public void Update(float deltaTime)
         {
             if (!_scenes[_currentSceneIndex].Started)
                 _scenes[_currentSceneIndex].Start();
 
-            _scenes[_currentSceneIndex].Update();
+            _scenes[_currentSceneIndex].Update(deltaTime);
         }
 
         //Used to display objects and other info on the screen.
@@ -158,7 +164,8 @@ namespace MathForGames
 
             while(!_gameOver && !Raylib.WindowShouldClose())
             {
-                Update();
+                float deltaTime = Raylib.GetFrameTime();
+                Update(deltaTime);
                 Draw();
                 while (Console.KeyAvailable)
                     Console.ReadKey(true);

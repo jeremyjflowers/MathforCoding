@@ -12,6 +12,7 @@ namespace MathForGames
         protected char _icon = ' ';
         protected Vector2 _position;
         protected Vector2 _velocity;
+        protected Matrix3 _transform;
         private Vector2 _facing;
         protected ConsoleColor _color;
         protected Color _rayColor;
@@ -19,8 +20,8 @@ namespace MathForGames
 
         public Vector2 Forward
         {
-            get { return _facing; }
-            set { _facing = value; }
+            get { return new Vector2(_transform.m11, _transform.m21); }
+            set { _transform.m11 = value.X; _transform.m21 = value.Y; }
         }
 
         public Vector2 Position

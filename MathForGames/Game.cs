@@ -106,19 +106,16 @@ namespace MathForGames
         public void Start()
         {
             //Creates a new window for raylib
-            Raylib.InitWindow(1024, 760, "Math For Games");
+            Raylib.InitWindow(1366, 768, "Math For Games");
             Console.CursorVisible = false;
             Scene scene1 = new Scene();
             Scene scene2 = new Scene();
 
-            Player player = new Player(0, 0, Color.GOLD, '@', ConsoleColor.Yellow);
-            Entity entity = new Entity(20, 6, Color.LIME, '■', ConsoleColor.Green);
-            Enemy enemy = new Enemy(10, 10, Color.GOLD, '?', ConsoleColor.Yellow);
-            enemy.Target = player;
-            entity.Velocity.X = 1;
+            Player player = new Player(1, 3, Color.GOLD, '@', ConsoleColor.Yellow);
+            Enemy enemy = new Enemy(15, 9, Color.BLUE, ' ', ConsoleColor.Red);
             scene1.AddEntity(player);
-            scene1.AddEntity(entity);
             scene1.AddEntity(enemy);
+            enemy.Target = player;
 
             scene2.AddEntity(player);
             player.Speed = 5;

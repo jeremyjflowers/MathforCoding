@@ -9,6 +9,7 @@ namespace MathForGames
     class Player : Entity
     {
         private float _speed = 2;
+        private Sprite _sprite;
 
         public float Speed
         {
@@ -23,43 +24,13 @@ namespace MathForGames
         }
         public Player(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Yellow) : base(x, y, icon, color)
         {
-
+            _sprite = new Sprite("Images/player.png");
         }
 
         public Player(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White) : base(x, y, rayColor, icon, color)
         {
-
+            _sprite = new Sprite("Images/player.png");
         }
-
-        //public override void Draw()
-        //{
-        //    ConsoleKey keyPressed = Game.GetNextKey();
-
-        //    switch (keyPressed)
-        //    {
-        //        case ConsoleKey.A:
-        //            _velocity.X = -1;
-        //            break;
-        //        case ConsoleKey.D:
-        //            _velocity.X = 1;
-        //            break;
-        //        case ConsoleKey.W:
-        //            _velocity.Y = -1;
-        //            break;
-        //        case ConsoleKey.S:
-        //            _velocity.Y = 1;
-        //            break;
-        //        case ConsoleKey.Spacebar:
-        //            Game.SetCurrentScene(1);
-        //            break;
-        //        default:
-        //            _velocity.X = 0;
-        //            _velocity.Y = 0;
-        //            break;
-        //    }
-
-        //    base.Draw();
-        //}
 
         public override void Update(float deltaTime)
         {
@@ -73,6 +44,12 @@ namespace MathForGames
             Velocity = Velocity.Normalized * Speed;
 
             base.Update(deltaTime);
+        }
+
+        public override void Draw()
+        {
+            _sprite.Draw(_transform);
+            base.Draw();
         }
     }
 }

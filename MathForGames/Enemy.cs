@@ -10,6 +10,7 @@ namespace MathForGames
     {
         private Entity _target;
         private Color _alertColor;
+        private Sprite _spirte;
 
         public Entity Target
         {
@@ -19,11 +20,12 @@ namespace MathForGames
 
         public Enemy(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Yellow) : base(x, y, icon, color)
         {
-
+            _spirte = new Sprite("Images/enemy.png");
         }
 
         public Enemy(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White) : base(x, y, rayColor, icon, color)
         {
+            _spirte = new Sprite("Images/enemy.png");
             _alertColor = Color.RED;
         }
 
@@ -46,7 +48,7 @@ namespace MathForGames
 
         public override void Update(float deltaTime)
         {
-            if(CheckTargetInSight(1.5f, 5))
+            if(CheckTargetInSight(1.5f, 1.5f))
             {
                 _rayColor = Color.RED;
             }

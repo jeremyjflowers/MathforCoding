@@ -48,7 +48,7 @@ namespace MathForGames
 
         public override void Update(float deltaTime)
         {
-            if(CheckTargetInSight(1.5f, 1.5f))
+            if(CheckTargetInSight(1.5f, 0))
             {
                 _rayColor = Color.RED;
             }

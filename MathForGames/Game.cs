@@ -111,17 +111,16 @@ namespace MathForGames
             Scene scene1 = new Scene();
             Scene scene2 = new Scene();
 
-            Player player = new Player(2, 3, Color.GOLD, '@', ConsoleColor.Yellow);
-            Enemy enemy = new Enemy(15, 9, Color.BLUE, '☼', ConsoleColor.Red);
+            Player player = new Player(5, 7, Color.GOLD, '@', ConsoleColor.Yellow);
+            Enemy enemy = new Enemy(15, 15, Color.BLUE, '☼', ConsoleColor.Red);
             scene1.AddEntity(player);
             scene1.AddEntity(enemy);
             enemy.Target = player;
-            player.Rotate(2);
-            player.Scale(1,0);
-
-
-            scene2.AddEntity(player);
-            player.Speed = 5;
+            enemy.Translate(new Vector2(15, 15));
+            enemy.Scale(2, 2);
+            player.Translate(new Vector2(5,7));
+            player.Rotate(1);
+            player.Scale(2,3);
 
             int startingSceneIndex = 0;
 

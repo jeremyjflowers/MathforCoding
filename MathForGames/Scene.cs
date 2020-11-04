@@ -1,14 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MathLibrary;
 
 namespace MathForGames
 {
     class Scene
     {
         private Entity[] _entities;
+        private Matrix3 _transform;
 
         public bool Started { get; private set; }
+
+        public Matrix3 Transform
+        {
+            get { return _transform; }
+
+        }
 
         public Scene()
         {

@@ -13,7 +13,7 @@ namespace MathForGames
         protected Vector2 _position;
         protected Vector2 _velocity;
         protected Matrix3 _globalTransform;
-        protected Matrix3 _localTransform;
+        protected Matrix3 _localTransform = new Matrix3();
         protected Matrix3 _transform = new Matrix3();
         private Matrix3 _rotation = new Matrix3();
         private Matrix3 _translation = new Matrix3();
@@ -22,6 +22,7 @@ namespace MathForGames
         protected Color _rayColor;
         protected Entity _parent;
         protected Entity[] _children = new Entity[0];
+        protected float _collisionRadius;
         public bool Started { get; private set; }
 
         public Vector2 Forward
@@ -142,9 +143,38 @@ namespace MathForGames
             _scale.m22 = y;
         }
 
+        public void Parent(Entity _parent)
+        {
+
+        }
+
         private void UpdateTransform()
         {
             _localTransform = _translation * _rotation * _scale;
+        }
+
+        private void UpdateGlobalTransform()
+        {
+
+        }
+
+        /// <summary>
+        /// Checks to see if this entity overlaps another
+        /// </summary>
+        /// <param name="other">The entity that this entity is checking collision against</param>
+        /// <returns></returns>
+        public bool CheckCollision(Entity other)
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// Called whenever a collision occurs between this entity and another. Use this to define game logic for this entity's collision
+        /// </summary>
+        /// <param name="other"></param>
+        public virtual void OnCollision(Entity other)
+        {
+           
         }
 
         public virtual void Start()

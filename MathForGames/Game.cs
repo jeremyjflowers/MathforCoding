@@ -120,7 +120,8 @@ namespace MathForGames
             enemy.Scale(2, 2);
             player.Translate(new Vector2(5,7));
             player.Rotate(1);
-            player.Scale(2,3);
+            player.Scale(2, 3);
+
 
             int startingSceneIndex = 0;
 

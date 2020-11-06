@@ -8,15 +8,8 @@ namespace MathForGames
     class Scene
     {
         private Entity[] _entities;
-        private Matrix3 _transform;
 
         public bool Started { get; private set; }
-
-        public Matrix3 Transform
-        {
-            get { return _transform; }
-
-        }
 
         public Scene()
         {
@@ -108,6 +101,15 @@ namespace MathForGames
             return entityRemoved;
         }
 
+
+        /// <summary>
+        /// Check to see if any entity has collied with anything
+        /// </summary>
+        private void CheckCollision()
+        {
+
+        }
+
         public virtual void Start()
         {
             Started = true;
@@ -122,6 +124,7 @@ namespace MathForGames
 
                 _entities[i].Update(deltaTime);
             }
+            CheckCollision();
         }
 
         public virtual void Draw()

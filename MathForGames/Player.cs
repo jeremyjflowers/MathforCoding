@@ -24,7 +24,7 @@ namespace MathForGames
         }
         public Player(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Yellow) : base(x, y, icon, color)
         {
-            _sprite = new Sprite("Images/player.png");
+            
         }
 
         public Player(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White) : base(x, y, rayColor, icon, color)
@@ -48,7 +48,7 @@ namespace MathForGames
 
         public override void Draw()
         {
-            _sprite.Draw(_transform);
+            _sprite.Draw(_globalTransform);
             base.Draw();
         }
     }

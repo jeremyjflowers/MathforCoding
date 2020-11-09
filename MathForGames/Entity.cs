@@ -12,9 +12,8 @@ namespace MathForGames
         protected char _icon;
         protected Vector2 _position;
         protected Vector2 _velocity;
-        protected Matrix3 _globalTransform;
+        protected Matrix3 _globalTransform = new Matrix3();
         protected Matrix3 _localTransform = new Matrix3();
-        protected Matrix3 _transform = new Matrix3();
         private Matrix3 _rotation = new Matrix3();
         private Matrix3 _translation = new Matrix3();
         private Matrix3 _scale = new Matrix3();
@@ -23,13 +22,14 @@ namespace MathForGames
         protected Entity _parent;
         protected Entity[] _children = new Entity[0];
         protected float _collisionRadius;
+        protected float radians;
         public bool Started { get; private set; }
 
         public Vector2 Forward
         {
             get
             {
-                return new Vector2(_localTransform.m11, _localTransform.m21);
+                return new Vector2(_globalTransform.m11, _globalTransform.m21);
             }
         }
 
@@ -77,7 +77,6 @@ namespace MathForGames
 
         public Entity(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.Green) : this(x,y,icon,color)
         {
-            _transform = new Matrix3();
             _rayColor = rayColor;
         }
 
@@ -123,13 +122,13 @@ namespace MathForGames
             return childRemoved;
         }
 
-        public void Translate(Vector2 position)
+        public void SetTranslate(float x, float y)
         {
-            _translation.m13 = position.X;
-            _translation.m23 = position.Y;
+            _translation.m13 = x;
+            _translation.m23 = y;
         }
 
-        public void Rotate(float radians)
+        public void SetRotate(float radians)
         {
             _rotation.m11 = (float)Math.Cos(radians);
             _rotation.m21 = -(float)Math.Sin(radians);
@@ -137,25 +136,27 @@ namespace MathForGames
             _rotation.m22 = (float)Math.Cos(radians);
         }
 
-        public void Scale(float x, float y)
+        public void SetScale(float x, float y)
         {
             _scale.m11 = x;
             _scale.m22 = y;
         }
 
-        public void Parent(Entity _parent)
-        {
-
-        }
-
-        private void UpdateTransform()
+        public void UpdateTransform()
         {
             _localTransform = _translation * _rotation * _scale;
         }
 
-        private void UpdateGlobalTransform()
+        public void UpdateGlobalTransform()
         {
-
+            if (_parent != null)
+            {
+                _globalTransform = _parent._globalTransform * _localTransform;
+            }
+            else
+            {
+                _globalTransform = _localTransform;
+            }
         }
 
         /// <summary>
@@ -185,27 +186,30 @@ namespace MathForGames
         public virtual void Update(float deltaTime)
         {
             UpdateTransform();
+            UpdateGlobalTransform();
 
             //Increase position by the current velocity
             LocalPosition += _velocity * deltaTime;
+
+            SetRotate(radians += deltaTime);
         }
 
         public virtual void Draw()
         {
             //Draws the actor and a line indicating it
-            Raylib.DrawText(_icon.ToString(), (int)_position.X * 32, (int)_position.Y * 32, 18, _rayColor);
+            Raylib.DrawText(_icon.ToString(), (int)(WorldPosition.X * 32), (int)(WorldPosition.Y * 32), 18, _rayColor);
             Raylib.DrawLine(
-                    (int)(LocalPosition.X * 32), 
-                    (int)(LocalPosition.Y * 32), 
-                    (int)((LocalPosition.X + Forward.X) * 32), 
-                    (int)((LocalPosition.Y + Forward.Y) * 32), 
+                    (int)(WorldPosition.X * 32), 
+                    (int)(WorldPosition.Y * 32), 
+                    (int)((WorldPosition.X + Forward.X) * 32), 
+                    (int)((WorldPosition.Y + Forward.Y) * 32), 
                     Color.WHITE
                 );
 
             Console.ForegroundColor = _color;
 
             //Only draws the actor on the console if it is within the bounds of the window
-            if(LocalPosition.X >= 0 && LocalPosition.X < Console.WindowWidth && LocalPosition.Y >= 0 && LocalPosition.Y < Console.WindowHeight)
+            if(WorldPosition.X >= 0 && WorldPosition.X < Console.WindowWidth && WorldPosition.Y >= 0 && WorldPosition.Y < Console.WindowHeight)
             {
                 Console.SetCursorPosition((int)_position.X, (int)_position.Y);
                 Console.Write(_icon);

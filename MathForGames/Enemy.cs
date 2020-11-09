@@ -48,13 +48,13 @@ namespace MathForGames
 
         public override void Update(float deltaTime)
         {
-            if(CheckTargetInSight(1.5f, 0))
+            if(CheckTargetInSight(0.5f, 0.5f))
             {
                 _rayColor = Color.RED;
             }
             else
             {
-                _rayColor = Color.GREEN;
+
             }
 
             base.Update(deltaTime);
@@ -62,7 +62,7 @@ namespace MathForGames
 
         public override void Draw()
         {
-            _spirte.Draw(_transform);
+            _spirte.Draw(_globalTransform);
             base.Draw();
         }
     }

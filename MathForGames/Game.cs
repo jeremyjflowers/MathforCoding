@@ -114,14 +114,17 @@ namespace MathForGames
             Player player = new Player(7, 5, Color.GOLD, '@', ConsoleColor.Yellow);
             Entity entity = new Entity(8, 15, Color.ORANGE, '!', ConsoleColor.Cyan);
             Enemy enemy = new Enemy(15, 15, Color.GREEN, '☼', ConsoleColor.Red);
+            Enemy enemy1 = new Enemy(9, 5, Color.LIME, '#', ConsoleColor.Magenta);
             scene1.AddEntity(player);
-            scene1.AddEntity(entity);
             scene1.AddEntity(enemy);
+            scene1.AddEntity(enemy1);
+            player.Speed = 10;
             player.SetTranslate(7, 5);
             enemy.SetTranslate(3, 0);
-            entity.SetTranslate(8, 10);
+            enemy1.SetTranslate(6, 1);
            
             player.AddChild(enemy);
+            player.AddChild(enemy1);
 
             int startingSceneIndex = 0;
 

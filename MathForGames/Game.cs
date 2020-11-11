@@ -112,19 +112,25 @@ namespace MathForGames
             Scene scene2 = new Scene();
 
             Player player = new Player(7, 5, Color.GOLD, '@', ConsoleColor.Yellow);
+            Player player1 = new Player(10, 10, Color.BEIGE, '%', ConsoleColor.White);
             Entity entity = new Entity(8, 15, Color.ORANGE, '!', ConsoleColor.Cyan);
             Enemy enemy = new Enemy(15, 15, Color.GREEN, '☼', ConsoleColor.Red);
             Enemy enemy1 = new Enemy(9, 5, Color.LIME, '#', ConsoleColor.Magenta);
             scene1.AddEntity(player);
             scene1.AddEntity(enemy);
             scene1.AddEntity(enemy1);
+            scene1.AddEntity(player1);
             player.Speed = 10;
-            player.SetTranslate(7, 5);
-            enemy.SetTranslate(3, 0);
-            enemy1.SetTranslate(6, 1);
-           
+            player1.Speed = 10;
+            player.SetTranslate(new Vector2(5, 5));
+            player1.SetTranslate(new Vector2(20, 5));
+            enemy.SetTranslate(new Vector2(3, 0));
+            enemy1.SetTranslate(new Vector2(3, 0));
+            player.SetScale(2, 2);
+            player1.SetScale(2, 2);
+
             player.AddChild(enemy);
-            player.AddChild(enemy1);
+            player1.AddChild(enemy1);
 
             int startingSceneIndex = 0;
 

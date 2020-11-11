@@ -122,24 +122,19 @@ namespace MathForGames
             return childRemoved;
         }
 
-        public void SetTranslate(float x, float y)
+        public void SetTranslate(Vector2 position)
         {
-            _translation.m13 = x;
-            _translation.m23 = y;
+            _translation = Matrix3.CreateTranslation(position);
         }
 
         public void SetRotate(float radians)
         {
-            _rotation.m11 = (float)Math.Cos(radians);
-            _rotation.m21 = -(float)Math.Sin(radians);
-            _rotation.m12 = (float)Math.Sin(radians);
-            _rotation.m22 = (float)Math.Cos(radians);
+            _rotation = Matrix3.CreateRotation(radians);
         }
 
         public void SetScale(float x, float y)
         {
-            _scale.m11 = x;
-            _scale.m22 = y;
+            _scale = Matrix3.CreateScale(new Vector2(x, y));
         }
 
         public void UpdateTransform()
@@ -166,6 +161,7 @@ namespace MathForGames
         /// <returns></returns>
         public bool CheckCollision(Entity other)
         {
+
             return false;
         }
 
@@ -191,7 +187,7 @@ namespace MathForGames
             //Increase position by the current velocity
             LocalPosition += _velocity * deltaTime;
 
-            SetRotate(radians += deltaTime);
+            SetRotate((radians += deltaTime) * 100);
         }
 
         public virtual void Draw()

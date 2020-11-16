@@ -32,7 +32,7 @@ namespace MathLibrary
         public float W
         {
             get { return _w; }
-            set { _x = value; }
+            set { _w = value; }
         }
 
         public float Magnitude
@@ -109,6 +109,14 @@ namespace MathLibrary
         {
 
             return new Vector4(lhs.X / scalar, lhs.Y / scalar, lhs.Z / scalar, lhs.W / scalar);
+        }
+
+        public static Vector4 operator *(Matrix4 lhs, Vector4 rhs)
+        {
+            return new Vector4
+                (
+                    
+                );
         }
     }
 }

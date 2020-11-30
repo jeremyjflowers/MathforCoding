@@ -97,6 +97,16 @@ namespace MathForGames
             return Raylib.IsKeyPressed((KeyboardKey)key);
         }
 
+        public static bool GetMouseDown(int button)
+        {
+            return Raylib.IsMouseButtonDown((MouseButton)button);
+        }
+
+        public static bool GetMousePressed(int button)
+        {
+            return Raylib.IsMouseButtonPressed((MouseButton)button);
+        }
+
         public Game()
         {
             _scenes = new Scene[0];
@@ -106,31 +116,24 @@ namespace MathForGames
         public void Start()
         {
             //Creates a new window for raylib
-            Raylib.InitWindow(1152, 864, "Math For Games");
-            Console.CursorVisible = false;
+            Raylib.InitWindow(1280, 1024, "Extinction");
+            Raylib.EnableCursor();
+            Raylib.ShowCursor();
             Scene scene1 = new Scene();
-            Scene scene2 = new Scene();
 
-            Player player = new Player(7, 5, Color.GOLD, '@', ConsoleColor.Yellow);
-            Entity entity = new Entity(8, 15, Color.ORANGE, '!', ConsoleColor.Cyan);
-            Enemy enemy = new Enemy(15, 15, Color.GREEN, '☼', ConsoleColor.Red);
-            Enemy enemy1 = new Enemy(9, 5, Color.LIME, '#', ConsoleColor.Magenta);
-            scene1.AddEntity(player);
-            scene1.AddEntity(enemy);
-            scene1.AddEntity(enemy1);
-            player.Speed = 10;
-            player.SetTranslate(7, 5);
-            enemy.SetTranslate(3, 0);
-            enemy1.SetTranslate(6, 1);
-           
-            player.AddChild(enemy);
-            player.AddChild(enemy1);
+            Tank tank = new Tank(10, 10, Color.SKYBLUE, '@', ConsoleColor.Cyan);
+            Turret turret = new Turret(10, 10, Color.PURPLE, '$', ConsoleColor.Magenta);
+            Enemy enemy = new Enemy(15, 10, Color.GOLD, '!', ConsoleColor.Blue);
+            scene1.AddActor(tank);
+            scene1.AddActor(turret);
+            scene1.AddActor(enemy);
+            tank.AddChild(turret);
+            tank.SetTranslate(new Vector2(10, 10));
+            turret.SetTranslate(new Vector2(0.5f, 0.5f));
+            enemy.SetTranslate(new Vector2(15, 19));
 
             int startingSceneIndex = 0;
-
             startingSceneIndex = AddScene(scene1);
-            AddScene(scene2);
-
             SetCurrentScene(startingSceneIndex);
         }
 

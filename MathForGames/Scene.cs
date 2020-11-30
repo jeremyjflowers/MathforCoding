@@ -7,98 +7,98 @@ namespace MathForGames
 {
     class Scene
     {
-        private Entity[] _entities;
+        private Actor[] _actors;
 
         public bool Started { get; private set; }
 
         public Scene()
         {
-            _entities = new Entity[0];
+            _actors = new Actor[0];
         }
 
-        public void AddEntity(Entity entity)
+        public void AddActor(Actor actor)
         {
             //Creating a new array with a size one greater than the orginal array
-            Entity[] appendedArray = new Entity[_entities.Length + 1];
+            Actor[] appendedArray = new Actor[_actors.Length + 1];
             //Copied values from orginal array to new array
-            for(int i = 0; i < _entities.Length; i++)
+            for(int i = 0; i < _actors.Length; i++)
             {
-                appendedArray[i] = _entities[i];
+                appendedArray[i] = _actors[i];
             }
             //Sets the class value in the new array to be the entity we want to add
-            appendedArray[_entities.Length] = entity;
+            appendedArray[_actors.Length] = actor;
             //Set old array to hold the values of the new array
-            _entities = appendedArray;
+            _actors = appendedArray;
         }
 
-        public bool RemoveEntity(int index)
+        public bool RemoveActor(int index)
         {
             //Checks to see if the index is out of bonds of our array
-            if(index < 0 || index >= _entities.Length)
+            if(index < 0 || index >= _actors.Length)
             {
                 return false;
             }
 
-            bool entityRemoved = false;
+            bool actorRemoved = false;
 
             //Creating a new array with a size one less than the orginal array
-            Entity[] newArray = new Entity[_entities.Length - 1];
+            Actor[] newArray = new Actor[_actors.Length - 1];
             //Create new variable to access newArray index
             int j = 0;
             //Copy values from original array to the new array
-            for(int i = 0; i < _entities.Length; i++)
+            for(int i = 0; i < _actors.Length; i++)
             {
                 //If the current index is not the index that needs to be removed, add the value into the old array and increment j
                 if(i != index)
                 {
-                    newArray[j] = _entities[i];
+                    newArray[j] = _actors[i];
                     j++;
                 }
                 else
                 {
-                    entityRemoved = true;
-                    if (_entities[i].Started)
-                        _entities[i].End();
+                    actorRemoved = true;
+                    if (_actors[i].Started)
+                        _actors[i].End();
                 }
             }
             //Set the old array to be the newArray
-            _entities = newArray;
-            return entityRemoved;
+            _actors = newArray;
+            return actorRemoved;
         }
 
-        public bool RemoveEntity(Entity entity)
+        public bool RemoveActor(Actor actor)
         {
             //Checks to see if the entity is null
-            if(entity == null)
+            if(actor == null)
             {
                 return false;
             }
 
-            bool entityRemoved = false;
+            bool actorRemoved = false;
             //Creating a new array with a size one less than the orginal array
-            Entity[] newArray = new Entity[_entities.Length - 1];
+            Actor[] newArray = new Actor[_actors.Length - 1];
             //Create new variable to access newArray index
             int j = 0;
             //Copy values from original array to the new array
-            for (int i = 0; i < _entities.Length; i++)
+            for (int i = 0; i < _actors.Length; i++)
             {
                 //If the current index is not the index that needs to be removed, add the value into the old array and increment j
-                if (entity != _entities[i])
+                if (actor != _actors[i])
                 {
-                    newArray[j] = _entities[i];
+                    newArray[j] = _actors[i];
                     j++;
                 }
                 else
                 {
-                    entityRemoved = true;
-                    if (entity.Started)
-                        entity.End();
+                    actorRemoved = true;
+                    if (actor.Started)
+                        actor.End();
                 }
             }
             //Set the old array to be the new array
-            _entities = newArray;
+            _actors = newArray;
             //Return wheter the removal was successful or not
-            return entityRemoved;
+            return actorRemoved;
         }
 
 
@@ -107,7 +107,27 @@ namespace MathForGames
         /// </summary>
         private void CheckCollision()
         {
+            for (int i = 0; i < _actors.Length; i++)
 
+            {
+
+                for (int j = 0; j < _actors.Length; j++)
+
+                {
+
+                    if (i >= _actors.Length)
+
+                        break;
+
+
+
+                    if (_actors[i].CheckCollision(_actors[j]) && i != j)
+
+                        _actors[i].OnCollision(_actors[j]);
+
+                }
+
+            }
         }
 
         public virtual void Start()
@@ -117,30 +137,30 @@ namespace MathForGames
 
         public virtual void Update(float deltaTime)
         {
-            for (int i = 0; i < _entities.Length; i++)
+            for (int i = 0; i < _actors.Length; i++)
             {
-                if(!_entities[i].Started)
-                    _entities[i].Start();
+                if(!_actors[i].Started)
+                    _actors[i].Start();
 
-                _entities[i].Update(deltaTime);
+                _actors[i].Update(deltaTime);
             }
             CheckCollision();
         }
 
         public virtual void Draw()
         {
-            for (int i = 0; i < _entities.Length; i++)
+            for (int i = 0; i < _actors.Length; i++)
             {
-                _entities[i].Draw();
+                _actors[i].Draw();
             }
         }
 
         public virtual void End()
         {
-            for (int i = 0; i < _entities.Length; i++)
+            for (int i = 0; i < _actors.Length; i++)
             {
-                if(!_entities[i].Started)
-                    _entities[i].End();
+                if(!_actors[i].Started)
+                    _actors[i].End();
             }
 
             Started = false;

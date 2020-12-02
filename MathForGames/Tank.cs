@@ -30,7 +30,7 @@ namespace MathForGames
 
         public Tank(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.Cyan) : base(x, y, icon, color)
         {
-            _sprite = new Sprite("Images/tankBody_darkLarge_outline.png");
+            _sprite = new Sprite("Images/tankBody_darkLarge.png");
         }
 
         public override void Update(float deltaTime)

@@ -97,16 +97,6 @@ namespace MathForGames
             return Raylib.IsKeyPressed((KeyboardKey)key);
         }
 
-        public static bool GetMouseDown(int button)
-        {
-            return Raylib.IsMouseButtonDown((MouseButton)button);
-        }
-
-        public static bool GetMousePressed(int button)
-        {
-            return Raylib.IsMouseButtonPressed((MouseButton)button);
-        }
-
         public Game()
         {
             _scenes = new Scene[0];
@@ -116,21 +106,30 @@ namespace MathForGames
         public void Start()
         {
             //Creates a new window for raylib
-            Raylib.InitWindow(1280, 1024, "Extinction");
+            Raylib.InitWindow(1280, 768, "MathForGames");
             Raylib.EnableCursor();
             Raylib.ShowCursor();
             Scene scene1 = new Scene();
 
             Tank tank = new Tank(10, 10, Color.SKYBLUE, '@', ConsoleColor.Cyan);
-            Turret turret = new Turret(10, 10, Color.PURPLE, '$', ConsoleColor.Magenta);
-            Enemy enemy = new Enemy(15, 10, Color.GOLD, '!', ConsoleColor.Blue);
+            Turret turret = new Turret(10, 10, Color.BROWN, '$', ConsoleColor.Gray);
+            Enemy enemy1 = new Enemy(15, 10, Color.GOLD, '!', ConsoleColor.Blue);
+            Enemy enemy2 = new Enemy(15, 10, Color.GOLD, '!', ConsoleColor.Blue);
+            Enemy enemy3 = new Enemy(15, 10, Color.GOLD, '!', ConsoleColor.Blue);
             scene1.AddActor(tank);
             scene1.AddActor(turret);
-            scene1.AddActor(enemy);
+            scene1.AddActor(enemy1);
+            scene1.AddActor(enemy2);
+            scene1.AddActor(enemy3);
             tank.AddChild(turret);
-            tank.SetTranslate(new Vector2(10, 30));
-            turret.SetTranslate(new Vector2(0, 0));
-            enemy.SetTranslate(new Vector2(19, 5));
+            tank.SetTranslate(new Vector2(10, 20));
+            turret.SetScale(0.7f, 0.7f);
+            enemy1.SetTranslate(new Vector2(30, 5));
+            enemy1.SetScale(3.5f, 3.5f);
+            enemy2.SetTranslate(new Vector2(20, 5));
+            enemy2.SetScale(3.5f, 3.5f);
+            enemy3.SetTranslate(new Vector2(10, 5));
+            enemy3.SetScale(3.5f, 3.5f);
 
             int startingSceneIndex = 0;
             startingSceneIndex = AddScene(scene1);
@@ -150,7 +149,7 @@ namespace MathForGames
         public void Draw()
         {
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.BLACK);
+            Raylib.ClearBackground(Color.WHITE);
             Console.Clear();
             _scenes[_currentSceneIndex].Draw();
             Raylib.EndDrawing();

@@ -10,6 +10,8 @@ namespace MathForGames
     {
         private Sprite _sprite;
         private Actor _target;
+        private float _health;
+        private Sprite _enemyBullet = new Sprite("Images/laserRed02.png");
 
         public Actor Target
         {
@@ -31,6 +33,7 @@ namespace MathForGames
         public Enemy(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.Blue) : base(x, y, icon, color)
         {
             _sprite = new Sprite("Images/enemyBlack2.png");
+            _health = 100;
         }
 
         public bool CheckTargetInSight(float maxAngle, float maxDistance)
@@ -49,7 +52,11 @@ namespace MathForGames
 
         public override void Update(float deltaTime)
         {
-            CheckTargetInSight(5.5f, 5.5f);
+            if(CheckTargetInSight(5.5f, 5.5f))
+            {
+                
+            }
+
             base.Update(deltaTime);
         }
 

@@ -197,13 +197,6 @@ namespace MathForGames
         public virtual void Update(float deltaTime)
         {
             UpdateGlobalTransform();
-
-            Velocity += Acceleration;
-            if(Velocity.Magnitude > MaxSpeed)
-            {
-                Velocity = Velocity.Normalized * MaxSpeed;
-            }
-
             LocalPosition += _velocity * deltaTime;
         }
 

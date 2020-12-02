@@ -128,9 +128,9 @@ namespace MathForGames
             scene1.AddActor(turret);
             scene1.AddActor(enemy);
             tank.AddChild(turret);
-            tank.SetTranslate(new Vector2(10, 10));
-            turret.SetTranslate(new Vector2(0.5f, 0.5f));
-            enemy.SetTranslate(new Vector2(15, 19));
+            tank.SetTranslate(new Vector2(10, 30));
+            turret.SetTranslate(new Vector2(0, 0));
+            enemy.SetTranslate(new Vector2(19, 5));
 
             int startingSceneIndex = 0;
             startingSceneIndex = AddScene(scene1);

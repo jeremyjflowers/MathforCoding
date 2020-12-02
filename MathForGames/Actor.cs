@@ -21,7 +21,7 @@ namespace MathForGames
         protected Actor _parent;
         protected Actor[] _children = new Actor[0];
         protected float _collisionRadius;
-        protected float _maxSpeed;
+        private float _maxSpeed;
 
         public bool Started { get; private set; }
 
@@ -66,7 +66,6 @@ namespace MathForGames
             child._parent = null;
             return childRemoved;
         }
-
 
         public Vector2 Forward
         {

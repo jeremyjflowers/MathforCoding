@@ -8,7 +8,7 @@ namespace MathForGames
 {
     class Tank : Actor
     {
-        private float _speed;
+        private float _speed = 2;
         private Sprite _sprite;
 
         public float Speed

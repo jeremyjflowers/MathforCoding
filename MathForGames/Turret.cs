@@ -6,7 +6,7 @@ using Raylib_cs;
 
 namespace MathForGames
 {
-    class Turret : Tank
+    class Turret : Actor
     {
         private Sprite _sprite;
 
@@ -28,7 +28,7 @@ namespace MathForGames
 
         public override void Draw()
         {
-            _sprite.Draw(_globalTransform);
+            _sprite.Draw(_localTransform);
             base.Draw();
         }
     }

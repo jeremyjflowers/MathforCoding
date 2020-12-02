@@ -11,7 +11,6 @@ namespace MathForGames
         private Sprite _sprite;
         private Actor _target;
         private float _health;
-        private Sprite _enemyBullet = new Sprite("Images/laserRed02.png");
 
         public Actor Target
         {

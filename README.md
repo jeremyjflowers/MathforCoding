@@ -22,16 +22,6 @@ instructions in the [Building](#building) section below.
 Once you've got it working, check out the bindings file from Raylib-cs to learn
 about the C# API for Raylib or browse the example projects rewritten in C#.
 
-**raylib links** - [website][rl-website] / [discord][rl-discord] / [reddit][rl-reddit] / [raylib repo][rl-repo] / [c\# bindings repo][rl-cs-bindings], [api reference][rl-cs-bindings-ref], [examples][rl-cs-examples]
-
-[rl-website]:https://www.raylib.com/
-[rl-discord]:https://discord.gg/VkzNHUE
-[rl-reddit]:https://www.reddit.com/r/raylib/
-[rl-repo]:https://github.com/raysan5/raylib
-[rl-cs-bindings]:https://github.com/ChrisDill/Raylib-cs
-[rl-cs-bindings-ref]:https://github.com/ChrisDill/Raylib-cs/blob/master/Raylib-cs/Raylib.cs
-[rl-cs-examples]:https://github.com/ChrisDill/Raylib-cs-Examples
-
 ## Building
 
 Building this project requires **Visual Studio 2019** or newer.
@@ -52,15 +42,3 @@ A full list of all methods and types made available via the [binding can be
 found in the Raylib-cs repository][rl-cs-bindings-ref].
 
 [basicexample]:https://github.com/ChrisDill/Raylib-cs-Examples/blob/master/Examples/core/core_basic_window.cs
-
-## License
-
-MIT License - Copyright (c) 2019-2020 Academy of Interactive Entertainment
-
-For more information, see the [license][lic] file.
-
-Third party works are attributed under [thirdparty.md][3p].
-
-[lic]:LICENSE.md
-[3p]:THIRDPARTY.md
-[raylib]:https://github.com/raysan5/raylib

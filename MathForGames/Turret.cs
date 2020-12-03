@@ -9,6 +9,7 @@ namespace MathForGames
     class Turret : Actor
     {
         private Sprite _sprite;
+        private Sprite _bulletSprite = new Sprite("Images/bulletDark3_outline.png");
 
         public Turret(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Gray) : base(x, y, icon, color)
         {

@@ -9,6 +9,7 @@ namespace MathForGames
     class Enemy : Actor
     {
         private Sprite _sprite;
+        private Sprite _enemyBullet = new Sprite("Images/laserRed02.png");
         private Actor _target;
         private float _health;
 
@@ -35,6 +36,12 @@ namespace MathForGames
             _health = 100;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="maxAngle"></param>
+        /// <param name="maxDistance"></param>
+        /// <returns></returns>
         public bool CheckTargetInSight(float maxAngle, float maxDistance)
         {
             if (Target == null)
@@ -49,6 +56,10 @@ namespace MathForGames
             return false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public override void Update(float deltaTime)
         {
             if(CheckTargetInSight(5.5f, 5.5f))
@@ -59,6 +70,9 @@ namespace MathForGames
             base.Update(deltaTime);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void Draw()
         {
             _sprite.Draw(_globalTransform);

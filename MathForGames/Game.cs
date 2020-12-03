@@ -32,6 +32,7 @@ namespace MathForGames
             return _scenes[index];
         }
 
+        //
         public static int AddScene(Scene scene)
         {
             Scene[] tempArray = new Scene[_scenes.Length + 1];
@@ -48,6 +49,7 @@ namespace MathForGames
             return index;
         }
 
+        //
         public static bool RemoveSecne(Scene scene)
         {
             if(scene == null)
@@ -79,6 +81,7 @@ namespace MathForGames
             return removed;
         }
 
+        //
         public static void SetCurrentScene(int index)
         {
             if (index < 0 || index >= _scenes.Length)
@@ -87,11 +90,21 @@ namespace MathForGames
             _currentSceneIndex = index;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static bool GetKeyDown(int key)
         {
             return Raylib.IsKeyDown((KeyboardKey)key);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static bool GetKeyPressed(int key)
         {
             return Raylib.IsKeyPressed((KeyboardKey)key);
@@ -102,7 +115,9 @@ namespace MathForGames
             _scenes = new Scene[0];
         }
 
-        //Called when the game begins. Use this for initialization.
+        /// <summary>
+        /// Called when the game begins. Use this for initialization.
+        /// </summary>
         public void Start()
         {
             //Creates a new window for raylib
@@ -122,6 +137,7 @@ namespace MathForGames
             scene1.AddActor(enemy2);
             scene1.AddActor(enemy3);
             tank.AddChild(turret);
+            tank.Speed = 3;
             tank.SetTranslate(new Vector2(10, 20));
             turret.SetScale(0.7f, 0.7f);
             enemy1.SetTranslate(new Vector2(30, 5));
@@ -136,7 +152,10 @@ namespace MathForGames
             SetCurrentScene(startingSceneIndex);
         }
 
-        //Called every frame.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public void Update(float deltaTime)
         {
             if (!_scenes[_currentSceneIndex].Started)
@@ -145,7 +164,9 @@ namespace MathForGames
             _scenes[_currentSceneIndex].Update(deltaTime);
         }
 
-        //Used to display objects and other info on the screen.
+        /// <summary>
+        /// 
+        /// </summary>
         public void Draw()
         {
             Raylib.BeginDrawing();
@@ -162,7 +183,9 @@ namespace MathForGames
                 _scenes[_currentSceneIndex].End();
         }
 
-        //Handles all of the main game logic including the main game loop.
+        /// <summary>
+        /// Handles all of the main game logic including the main game loop.
+        /// </summary>
         public void Run()
         {
             Start();

@@ -25,6 +25,10 @@ namespace MathForGames
 
         public bool Started { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="child"></param>
         public void AddChild(Actor child)
         {
             Actor[] tempArray = new Actor[_children.Length + 1];
@@ -39,6 +43,11 @@ namespace MathForGames
             child._parent = this;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="child"></param>
+        /// <returns></returns>
         public bool RemoveChild(Actor child)
         {
             bool childRemoved = false;
@@ -108,45 +117,27 @@ namespace MathForGames
             }
         }
 
-        public Vector2 Acceleration
-        {
-            get
-            {
-                return acceleration;
-            }
-            set
-            {
-                acceleration = value;
-            }
-        }
-
-        public float MaxSpeed
-        {
-            get
-            {
-                return _maxSpeed;
-            }
-            set
-            {
-                _maxSpeed = value;
-            }
-        }
-
+        //
         public void SetTranslate(Vector2 position)
         {
             _translation = Matrix3.CreateTranslation(position);
         }
 
+        //
         public void SetRotate(float radians)
         {
             _rotation = Matrix3.CreateRotation(radians);
         }
 
+        //
         public void SetScale(float x, float y)
         {
             _scale = Matrix3.CreateScale(new Vector2(x, y));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void UpdateGlobalTransform()
         {
             _localTransform = _translation * _rotation * _scale;
@@ -175,6 +166,7 @@ namespace MathForGames
             }
         }
 
+        //Base constructor for actor and classes that inherit
         public Actor(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Yellow)
         {
             _rayColor = Color.BROWN;
@@ -183,6 +175,7 @@ namespace MathForGames
             _localTransform = new Matrix3();
         }
 
+        //Overridden constructor for actor and classes that inherit
         public Actor(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.Yellow) : this(x, y, icon, color)
         {
             _rayColor = rayColor;

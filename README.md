@@ -1,4 +1,4 @@
-### MathforCoding - Assesment
+# MathforCoding - Assesment
 
 This is a sample C# project setup with [raylib][raylib] for Visual Studio.
 Raylib is a simple game programming framework that is designed to be friendly to

@@ -1,4 +1,4 @@
-# raygamecsharp - sample project
+### MathforCoding - Assesment
 
 This is a sample C# project setup with [raylib][raylib] for Visual Studio.
 Raylib is a simple game programming framework that is designed to be friendly to
@@ -15,16 +15,8 @@ the Seattle Campus of the Academy of Interactive Entertainment.
 
 ## Getting Started
 
-To get started with this sample project, click the _Use this template_ button
-up top to copy this repository to your own account. Then, follow the
-instructions in the [Building](#building) section below.
 
-Once you've got it working, check out the bindings file from Raylib-cs to learn
-about the C# API for Raylib or browse the example projects rewritten in C#.
 
 ## Building
 
-Building this project requires **Visual Studio 2019** or newer.
 
-> This is written against .NET Core 3.1 and primarily supports Windows.
-> Adjustments may be needed for other platforms.

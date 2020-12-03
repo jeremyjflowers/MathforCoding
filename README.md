@@ -28,17 +28,3 @@ Building this project requires **Visual Studio 2019** or newer.
 
 > This is written against .NET Core 3.1 and primarily supports Windows.
 > Adjustments may be needed for other platforms.
-
-Clone the repository and open the solution in Visual Studio. Both the solution
-and project should already be configured and ready to start working with. To
-test this, build and run the provided sample project.
-
-![A screenshot of the included sample project](.github/raygame.png)
-
-The sample project that is provided is the [basic window example][basicexample]
-from raylib-cs. Further examples can be found in its [repository][rl-cs-examples].
-
-A full list of all methods and types made available via the [binding can be
-found in the Raylib-cs repository][rl-cs-bindings-ref].
-
-[basicexample]:https://github.com/ChrisDill/Raylib-cs-Examples/blob/master/Examples/core/core_basic_window.cs

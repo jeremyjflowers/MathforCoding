@@ -23,6 +23,15 @@ namespace MathForGames
             }
         }
 
+        public override void OnCollision(Actor other)
+        {
+            if(other is Enemy)
+            {
+                Game.SetGameOver(true);
+            }
+            base.OnCollision(other);
+        }
+
         public Tank(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Cyan) : base(x, y, icon, color)
         {
 
@@ -31,6 +40,7 @@ namespace MathForGames
         public Tank(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.Cyan) : base(x, y, icon, color)
         {
             _sprite = new Sprite("Images/tankBody_darkLarge.png");
+            _collisionRadius = 1;
         }
 
         public override void Update(float deltaTime)

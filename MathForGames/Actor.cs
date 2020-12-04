@@ -10,6 +10,7 @@ namespace MathForGames
     {
         protected char _icon;
         private Vector2 _velocity = new Vector2();
+        private Vector2 acceleration = new Vector2();
         protected Matrix3 _globalTransform = new Matrix3();
         protected Matrix3 _localTransform = new Matrix3();
         protected Matrix3 _translation = new Matrix3();
@@ -20,6 +21,7 @@ namespace MathForGames
         protected Actor _parent;
         protected Actor[] _children = new Actor[0];
         protected float _collisionRadius;
+        private float _maxSpeed;
 
         public bool Started { get; private set; }
 
@@ -188,7 +190,6 @@ namespace MathForGames
 
         public virtual void Draw()
         {
-
             if (WorldPosition.X >= 0 && WorldPosition.X < Console.WindowWidth && WorldPosition.Y >= 0 && WorldPosition.Y < Console.WindowHeight)
             {
                 Console.SetCursorPosition((int)WorldPosition.X, (int)WorldPosition.Y);

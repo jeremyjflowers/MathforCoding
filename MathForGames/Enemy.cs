@@ -8,6 +8,7 @@ namespace MathForGames
 {
     class Enemy : Actor
     {
+        public Laser _laser;
         private Sprite _sprite;
         private Actor _target;
 
@@ -23,6 +24,8 @@ namespace MathForGames
             }
         }
 
+
+
         public Enemy(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Blue) : base(x, y, icon, color)
         {
 
@@ -31,6 +34,7 @@ namespace MathForGames
         public Enemy(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.Blue) : base(x, y, icon, color)
         {
             _sprite = new Sprite("Images/enemyBlack2.png");
+            _collisionRadius = 1;
         }
 
         /// <summary>
@@ -61,7 +65,7 @@ namespace MathForGames
         {
             if(CheckTargetInSight(15.5f, 15.5f))
             {
-                Enemy enemyBullet = new Enemy(LocalPosition.X, LocalPosition.Y, '+', ConsoleColor.DarkBlue);
+                
             }
 
             base.Update(deltaTime);

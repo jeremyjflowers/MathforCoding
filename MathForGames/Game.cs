@@ -147,6 +147,9 @@ namespace MathForGames
             enemy2.SetScale(3.5f, 3.5f);
             enemy3.SetTranslate(new Vector2(10, 5));
             enemy3.SetScale(3.5f, 3.5f);
+            enemy1.Target = tank;
+            enemy2.Target = tank;
+            enemy3.Target = tank;
 
             int startingSceneIndex = 0;
             startingSceneIndex = AddScene(scene1);

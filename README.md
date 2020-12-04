@@ -17,5 +17,5 @@ Arrows Keys - Movement
 Spacebar - Fire
 
 ## Known Issues:
--The Fire mechaninc hasn't been properly implemented yet
+-The Fire mechaninc hasn't been properly implemented yet.
 -Enemies can't fire lasers at the player.

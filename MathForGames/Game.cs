@@ -170,7 +170,7 @@ namespace MathForGames
         public void Draw()
         {
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.WHITE);
+            Raylib.ClearBackground(Color.BLACK);
             Console.Clear();
             _scenes[_currentSceneIndex].Draw();
             Raylib.EndDrawing();

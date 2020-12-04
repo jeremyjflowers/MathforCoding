@@ -10,7 +10,6 @@ namespace MathForGames
     {
         protected char _icon;
         private Vector2 _velocity = new Vector2();
-        private Vector2 acceleration = new Vector2();
         protected Matrix3 _globalTransform = new Matrix3();
         protected Matrix3 _localTransform = new Matrix3();
         protected Matrix3 _translation = new Matrix3();
@@ -21,7 +20,6 @@ namespace MathForGames
         protected Actor _parent;
         protected Actor[] _children = new Actor[0];
         protected float _collisionRadius;
-        private float _maxSpeed;
 
         public bool Started { get; private set; }
 
@@ -172,14 +170,12 @@ namespace MathForGames
             _rayColor = Color.BROWN;
             _icon = icon;
             _color = color;
-            _localTransform = new Matrix3();
         }
 
         //Overridden constructor for actor and classes that inherit
         public Actor(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.Yellow) : this(x, y, icon, color)
         {
             _rayColor = rayColor;
-            _localTransform = new Matrix3();
         }
 
         public virtual void Start()

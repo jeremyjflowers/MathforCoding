@@ -21,9 +21,18 @@ namespace MathForGames
             _sprite = new Sprite("Images/tank_dark.png");
         }
 
+        public void FireBullet()
+        {
+            if(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE))
+            {
+                _bulletSprite.Draw(_globalTransform);
+            }
+
+        }
+
         public override void Update(float deltaTime)
         {
-
+            FireBullet();
             base.Update(deltaTime);
         }
 

@@ -61,7 +61,7 @@ namespace MathForGames
         {
             if(CheckTargetInSight(15.5f, 15.5f))
             {
-                Enemy enemyBullet;
+                Enemy enemyBullet = new Enemy(LocalPosition.X, LocalPosition.Y, '+', ConsoleColor.DarkBlue);
             }
 
             base.Update(deltaTime);

@@ -139,7 +139,7 @@ namespace MathForGames
             scene1.AddActor(enemy3);
             enemy1.AddChild(enemyBullet);
             tank.AddChild(turret);
-            tank.Speed = 8;
+            tank.Speed = 4;
             tank.SetTranslate(new Vector2(10, 20));
             enemy1.SetTranslate(new Vector2(30, 5));
             enemy1.SetScale(3.5f, 3.5f);

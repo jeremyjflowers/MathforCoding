@@ -32,7 +32,6 @@ namespace MathForGames
             return _scenes[index];
         }
 
-        //
         public static int AddScene(Scene scene)
         {
             Scene[] tempArray = new Scene[_scenes.Length + 1];
@@ -49,7 +48,6 @@ namespace MathForGames
             return index;
         }
 
-        //
         public static bool RemoveSecne(Scene scene)
         {
             if(scene == null)
@@ -81,7 +79,6 @@ namespace MathForGames
             return removed;
         }
 
-        //
         public static void SetCurrentScene(int index)
         {
             if (index < 0 || index >= _scenes.Length)
@@ -90,21 +87,11 @@ namespace MathForGames
             _currentSceneIndex = index;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
         public static bool GetKeyDown(int key)
         {
             return Raylib.IsKeyDown((KeyboardKey)key);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
         public static bool GetKeyPressed(int key)
         {
             return Raylib.IsKeyPressed((KeyboardKey)key);
@@ -156,10 +143,6 @@ namespace MathForGames
             SetCurrentScene(startingSceneIndex);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="deltaTime"></param>
         public void Update(float deltaTime)
         {
             if (!_scenes[_currentSceneIndex].Started)
@@ -168,9 +151,6 @@ namespace MathForGames
             _scenes[_currentSceneIndex].Update(deltaTime);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void Draw()
         {
             Raylib.BeginDrawing();

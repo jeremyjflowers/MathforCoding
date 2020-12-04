@@ -10,7 +10,6 @@ namespace MathForGames
     {
         protected char _icon;
         private Vector2 _velocity = new Vector2();
-        private Vector2 acceleration = new Vector2();
         protected Matrix3 _globalTransform = new Matrix3();
         protected Matrix3 _localTransform = new Matrix3();
         protected Matrix3 _translation = new Matrix3();
@@ -21,14 +20,10 @@ namespace MathForGames
         protected Actor _parent;
         protected Actor[] _children = new Actor[0];
         protected float _collisionRadius;
-        private float _maxSpeed;
 
         public bool Started { get; private set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="child"></param>
+
         public void AddChild(Actor child)
         {
             Actor[] tempArray = new Actor[_children.Length + 1];
@@ -43,11 +38,6 @@ namespace MathForGames
             child._parent = this;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="child"></param>
-        /// <returns></returns>
         public bool RemoveChild(Actor child)
         {
             bool childRemoved = false;
@@ -117,27 +107,21 @@ namespace MathForGames
             }
         }
 
-        //
         public void SetTranslate(Vector2 position)
         {
             _translation = Matrix3.CreateTranslation(position);
         }
 
-        //
         public void SetRotate(float radians)
         {
             _rotation = Matrix3.CreateRotation(radians);
         }
 
-        //
         public void SetScale(float x, float y)
         {
             _scale = Matrix3.CreateScale(new Vector2(x, y));
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void UpdateGlobalTransform()
         {
             _localTransform = _translation * _rotation * _scale;

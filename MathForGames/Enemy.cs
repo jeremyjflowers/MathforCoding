@@ -37,12 +37,6 @@ namespace MathForGames
             _collisionRadius = 1;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="maxAngle"></param>
-        /// <param name="maxDistance"></param>
-        /// <returns></returns>
         public bool CheckTargetInSight(float maxAngle, float maxDistance)
         {
             if (Target == null)
@@ -57,10 +51,6 @@ namespace MathForGames
             return false;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="deltaTime"></param>
         public override void Update(float deltaTime)
         {
             if(CheckTargetInSight(15.5f, 15.5f))
@@ -71,9 +61,6 @@ namespace MathForGames
             base.Update(deltaTime);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public override void Draw()
         {
             _sprite.Draw(_globalTransform);

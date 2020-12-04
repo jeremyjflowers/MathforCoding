@@ -13,9 +13,11 @@ each spaceship has 100 health points, so defaeting them won't be as easy.
 
 ## Controls
 
-Arrows Keys - Movement.
-Spacebar - Fire.
+Arrows Keys - Movement
+
+Spacebar - Fire
 
 ## Known Issues:
 -The Fire mechaninc hasn't been properly implemented yet.
+
 -Enemies can't fire lasers at the player.

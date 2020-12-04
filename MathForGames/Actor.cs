@@ -158,10 +158,7 @@ namespace MathForGames
 
         public virtual void OnCollision(Actor other)
         {
-            if(CheckCollision(other) != false)
-            {
-               
-            }
+
         }
 
         //Base constructor for actor and classes that inherit

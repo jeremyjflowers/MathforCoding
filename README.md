@@ -1,22 +1,21 @@
-# MathforCoding - Assesment
 
-This is a sample C# project setup with [raylib][raylib] for Visual Studio.
-Raylib is a simple game programming framework that is designed to be friendly to
-beginners. It is created by [Ramon Santamaria (@raysan5)][raysan].
+# Instructions
 
-The language binding is maintained at [ChrisDill/Raylib-cs][rl-cs-bindings] and
-is compatible with Raylib 3.0.
+## Player
 
-It is primarily intended for use by students in the Game Programming course at
-the Seattle Campus of the Academy of Interactive Entertainment.
+The player will be in control of the the tank and its turret. The player will have to defeat
+the 3 enemy spaceships hovering above them, shooting lasers. If the player is hit once, the game ends.
 
-[raylib]:https://github.com/raysan5/raylib
-[raysan]:https://github.com/raysan5
+## Enemy
 
-## Getting Started
+There will be 3 enemy spaceships that will try and destroy you. The spaceships will shoot lasers and
+each spaceship has 100 health points. Defaeting them won't be as easy.
 
+## Controls
 
+Arrows Keys - Movement
+Spacebar - Fire
 
-## Building
-
-
+## Known Issues:
+-The Fire mechaninc hasn't been properly implemented yet
+-Enemies can't fire lasers at the player.

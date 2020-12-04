@@ -9,9 +9,7 @@ namespace MathForGames
     class Enemy : Actor
     {
         private Sprite _sprite;
-        private Sprite _enemyBullet;
         private Actor _target;
-        private float radians;
 
         public Actor Target
         {
@@ -33,13 +31,6 @@ namespace MathForGames
         public Enemy(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.Blue) : base(x, y, icon, color)
         {
             _sprite = new Sprite("Images/enemyBlack2.png");
-        }
-
-        public void FireLaser()
-        {
-            _enemyBullet = new Sprite("Images/laserRed02.png");
-
-
         }
 
         /// <summary>
@@ -68,12 +59,10 @@ namespace MathForGames
         /// <param name="deltaTime"></param>
         public override void Update(float deltaTime)
         {
-            if(CheckTargetInSight(5.5f, 5.5f))
+            if(CheckTargetInSight(15.5f, 15.5f))
             {
-                FireLaser();
+                Enemy enemyBullet;
             }
-
-            SetRotate((radians += deltaTime) * 32);
 
             base.Update(deltaTime);
         }

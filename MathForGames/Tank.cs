@@ -38,8 +38,8 @@ namespace MathForGames
             int xVelocity = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_LEFT))
                 + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_RIGHT));
 
-            int yVelocity = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE))
-                + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE));
+            int yVelocity = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_UP))
+                + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_DOWN));
 
             Velocity = new Vector2(xVelocity, yVelocity);
             Velocity = Velocity.Normalized * Speed;

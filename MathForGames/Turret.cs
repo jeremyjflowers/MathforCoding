@@ -9,7 +9,7 @@ namespace MathForGames
     class Turret : Actor
     {
         private Sprite _sprite;
-        private Sprite _bulletSprite;
+        private Sprite _bulletSprite = new Sprite("Images/bulletDark3_outline,png");
 
         public Turret(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Gray) : base(x, y, icon, color)
         {
@@ -18,8 +18,7 @@ namespace MathForGames
 
         public Turret(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.Gray) : base(x, y, icon, color)
         {
-            _sprite = new Sprite("Images/tank_dark.png");
-            _bulletSprite = new Sprite("Images/bulletDark3_outline.png");
+            _sprite = new Sprite("Images/tank_darkLarge.png");
         }
 
         public override void Update(float deltaTime)

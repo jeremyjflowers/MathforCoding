@@ -158,7 +158,7 @@ namespace MathForGames
 
         public virtual void OnCollision(Actor other)
         {
-
+            
         }
 
         //Base constructor for actor and classes that inherit
@@ -188,24 +188,14 @@ namespace MathForGames
 
         public virtual void Draw()
         {
-            //Raylib.DrawText(_icon.ToString(), (int)(WorldPosition.X * 32), (int)(WorldPosition.Y * 32), 18, _rayColor);
-            //Raylib.DrawLine(
-            //        (int)(WorldPosition.X * 32),
-            //        (int)(WorldPosition.Y * 32),
-            //        (int)((WorldPosition.X + Forward.X) * 32),
-            //        (int)((WorldPosition.Y + Forward.Y) * 32),
-            //        Color.WHITE
-            //    );
 
-            //Console.ForegroundColor = _color;
+            if (WorldPosition.X >= 0 && WorldPosition.X < Console.WindowWidth && WorldPosition.Y >= 0 && WorldPosition.Y < Console.WindowHeight)
+            {
+                Console.SetCursorPosition((int)WorldPosition.X, (int)WorldPosition.Y);
+                Console.Write(_icon);
+            }
 
-            //if (WorldPosition.X >= 0 && WorldPosition.X < Console.WindowWidth && WorldPosition.Y >= 0 && WorldPosition.Y < Console.WindowHeight)
-            //{
-            //    Console.SetCursorPosition((int)WorldPosition.X, (int)WorldPosition.Y);
-            //    Console.Write(_icon);
-            //}
-
-            //Console.ForegroundColor = Game.DefaultColor;
+            Console.ForegroundColor = Game.DefaultColor;
         }
 
         public virtual void End()

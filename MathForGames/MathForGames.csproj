@@ -26,9 +26,6 @@
     <None Update="Images\tankBody_darkLarge.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\tank_dark.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Images\tank_darkLarge.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

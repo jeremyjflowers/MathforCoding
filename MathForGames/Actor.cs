@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using MathLibrary;
@@ -22,7 +22,6 @@ namespace MathForGames
         protected float _collisionRadius;
 
         public bool Started { get; private set; }
-
 
         public void AddChild(Actor child)
         {

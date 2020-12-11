@@ -3,7 +3,7 @@
 ## Player
 
 The player will be in control of the the tank and its turret. The player will have to defeat
-the 3 enemy spaceships hovering above them, shooting lasers. If the player is hit once, the game ends.
+the 3 enemy spaceships hovering above them, shooting lasers. If the player is hit once or runs into the enemies, the game ends.
 
 ## Enemy
 

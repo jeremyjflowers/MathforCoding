@@ -103,7 +103,7 @@ namespace MathForGames
 
 
         /// <summary>
-        /// Check to see if any entity has collied with anything
+        /// Check to see if any actor has collied with anything
         /// </summary>
         private void CheckCollision()
         {

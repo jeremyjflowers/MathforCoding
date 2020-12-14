@@ -55,7 +55,7 @@ namespace MathForGames
         {
             if(CheckTargetInSight(15.5f, 15.5f))
             {
-                
+                Laser laser = new Laser(4, 8, Color.RED, '&', ConsoleColor.Red);
             }
 
             base.Update(deltaTime);

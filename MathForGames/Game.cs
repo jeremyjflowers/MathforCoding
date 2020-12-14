@@ -118,13 +118,11 @@ namespace MathForGames
             Enemy enemy1 = new Enemy(15, 10, Color.GOLD, '!', ConsoleColor.Blue);
             Enemy enemy2 = new Enemy(18, 10, Color.GOLD, '!', ConsoleColor.Blue);
             Enemy enemy3 = new Enemy(21, 10, Color.GOLD, '!', ConsoleColor.Blue);
-            Enemy enemyBullet = new Enemy(15, 12, Color.BEIGE, '+', ConsoleColor.DarkBlue);
             scene1.AddActor(tank);
             scene1.AddActor(turret);
             scene1.AddActor(enemy1);
             scene1.AddActor(enemy2);
             scene1.AddActor(enemy3);
-            enemy1.AddChild(enemyBullet);
             tank.AddChild(turret);
             tank.Speed = 4;
             tank.SetTranslate(new Vector2(10, 20));

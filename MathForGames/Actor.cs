@@ -20,6 +20,7 @@ namespace MathForGames
         protected Actor _parent;
         protected Actor[] _children = new Actor[0];
         protected float _collisionRadius;
+        protected float radians;
 
         public bool Started { get; private set; }
 

@@ -57,6 +57,8 @@ namespace MathForGames
                 Laser laser = new Laser(4, 8, Color.RED, '&', ConsoleColor.Red);
             }
 
+            SetRotate(radians += deltaTime);
+
             base.Update(deltaTime);
         }
 

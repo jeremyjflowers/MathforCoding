@@ -124,14 +124,15 @@ namespace MathForGames
             scene1.AddActor(enemy2);
             scene1.AddActor(enemy3);
             tank.AddChild(turret);
+            enemy1.AddChild(enemy2);
+            enemy1.AddChild(enemy3);
             tank.Speed = 4;
             tank.SetTranslate(new Vector2(10, 20));
-            enemy1.SetTranslate(new Vector2(30, 5));
-            enemy1.SetScale(3.5f, 3.5f);
-            enemy2.SetTranslate(new Vector2(20, 5));
-            enemy2.SetScale(3.5f, 3.5f);
-            enemy3.SetTranslate(new Vector2(10, 5));
-            enemy3.SetScale(3.5f, 3.5f);
+            enemy1.SetTranslate(new Vector2(18, 10));
+            enemy1.SetScale(3f, 3f);
+            enemy2.SetTranslate(new Vector2(3, 0));
+            enemy3.SetTranslate(new Vector2(-3, 0));
+
             enemy1.Target = tank;
             enemy2.Target = tank;
             enemy3.Target = tank;

@@ -8,7 +8,6 @@ namespace MathForGames
 {
     class Enemy : Actor
     {
-        public Laser _laser;
         private Sprite _sprite;
         private Actor _target;
 

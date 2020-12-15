@@ -152,9 +152,6 @@ display visual elements, such as icons on the screen or sprite characters.
         Name: _sprite
              Description: A reference to the Sprite class for Laser.
              Type:Sprite.cs
-        Name: _speed
-             Description: A variable used to calculate the speed of the Laser class. 
-             Type:float
         Name: Laser(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Red) : base(x, y, icon, color)
              Description: The base constructor for Laser using the inheritance of Actor.
              Type:constructor
@@ -163,6 +160,25 @@ display visual elements, such as icons on the screen or sprite characters.
              Type:constructor
         Name: Draw()
              Description: The draw fucntion called for Laser.
+             Type:void
+
+
+   **File**: Bullet.cs
+
+
+   **Attrubutes**:
+
+        Name: _sprite
+             Description: A reference to the Sprite class.
+             Type:Sprite
+        Name: 
+             Description: The base constructor for the Bullet using the inheritance of Actor. 
+             Type:constructor
+        Name: 
+             Description: 
+             Type:constructor
+        Name: Draw()
+             Description: 
              Type:void
 
 
@@ -405,6 +421,33 @@ display visual elements, such as icons on the screen or sprite characters.
         Name: Magnitude
              Description: A function that calculates the magnitude of a GameObject.
              Type:float
+        Name: Normalized
+             Description: A function that returns a normalized variable.
+             Type:Vector2
+        Name: Normalize(Vector2 vector)
+             Description: A function that returns a normalized vector.
+             Type:Vector2
+        Name: Vector2()
+             Description: The base constructor for the Vector2 class.
+             Type:constructor
+        Name: Vector2(float x, float y)
+             Description: The overloaded constructor for the Vector2 class.
+             Type:constructor
+        Name: DotProduct(Vector2 lhs, Vector2 rhs)
+             Description: A function that calculates the product of the Vector2 times itself.
+             Type:float
+        Name: operator +(Vector2 lhs, Vector2 rhs)
+             Description: A function that has been added on both sides.
+             Type:Vector2
+        Name: operator -(Vector2 lhs, Vector2 rhs)
+             Description: A function that has been subtracted on both sides.
+             Type:Vector2
+        Name: operator *(Vector2 lhs, float scalar)
+             Description: A function that has been multiplied by a Vector2 and a scalar.
+             Type:Vector2
+        Name: operator /(Vector2 lhs, float scalar)
+             Description: A function that has been divided by a Vector2 and a scalar.
+             Type:Vector2
 
 
 
@@ -413,9 +456,60 @@ display visual elements, such as icons on the screen or sprite characters.
 
    **Attributes**:
 
-        Name: 
-             Description: 
-             Type:
+        Name: _x
+             Description: A variable that can hold a value.
+             Type:float
+        Name: _y
+             Description: A variable that can hold a value
+             Type:float
+        Name: _z
+             Description: A variable that can hold a value
+             Type:float
+        Name: X
+             Description: A function that returns the _x variable and gives it value.
+             Type:float
+        Name: Y
+             Description: A function that returns the _y variable and gives it a value.
+             Type:float
+        Name: Z
+             Description: A function that returns the _z variable and gives it a value.
+             Type:float
+        Name: Magnitude
+             Description: A function that calculates the magnitude of a GameObject.
+             Type:float
+        Name: Normalized
+             Description: A function that returns a normalized variable.
+             Type:Vector3
+        Name: Normalize(Vector3 vector)
+             Description: A function that returns a normalized vector.
+             Type:Vector3
+        Name: Vector3()
+             Description: The base constructor for the Vector3 class.
+             Type:constructor
+        Name: Vector3(float x, float y, float z)
+             Description: The overloaded constructor for the Vector3 class.
+             Type:constructor
+        Name: DotProduct(Vector3 lhs, Vector3 rhs)
+             Description: A function that calculates the product of the Vector3 times itself.
+             Type:float
+        Name: CrossProduct(Vector3 lhs, Vector3 rhs)
+             Description: A function that calculates the cross multiplication of the Vector3 times itself.
+             Type:float
+        Name: operator +(Vector3 lhs, Vector3 rhs)
+             Description: A function that has been added on both sides.
+             Type:Vector3
+        Name: operator -(Vector3 lhs, Vector3 rhs)
+             Description: A function that has been subtracted on both sides.
+             Type:Vector3
+        Name: operator *(Vector3 lhs, float scalar)
+             Description: A function that has been multiplied by a Vector3 and a scalar.
+             Type:Vector3
+        Name: operator *(float scalar, Vector3 lhs)
+             Description: A function that has been multiplied by a scalar and a Vector3.
+             Type:Vector3
+        Name: operator /(Vector3 lhs, float scalar)
+             Description: A function that has been divided by a Vector3 and a scalar.
+             Type:Vector3
 
 
    **File**: Vector4.cs
@@ -423,6 +517,63 @@ display visual elements, such as icons on the screen or sprite characters.
 
    **Attributes**:
 
-        Name: 
-             Description: 
-             Type:
+        Name: _x
+             Description: A variable that can hold a value.
+             Type:float
+        Name: _y
+             Description: A variable that can hold a value
+             Type:float
+        Name: _z
+             Description: A variable that can hold a value
+             Type:float
+        Name: _w
+             Description: A variable that can hold a value
+             Type:float
+        Name: X
+             Description: A function that returns the _x variable and gives it value.
+             Type:float
+        Name: Y
+             Description: A function that returns the _y variable and gives it a value.
+             Type:float
+        Name: Z
+             Description: A function that returns the _z variable and gives it a value.
+             Type:float
+        Name: W
+             Description: A function that returns the _z variable and gives it a value.
+             Type:float
+        Name: Magnitude
+             Description: A function that calculates the magnitude of a GameObject.
+             Type:float
+        Name: Normalized
+             Description: A function that returns a normalized variable.
+             Type:Vector4
+        Name: Normalize(Vector4 vector)
+             Description: A function that returns a normalized vector.
+             Type:Vector4
+        Name: Vector4()
+             Description: The base constructor for the Vector4 class.
+             Type:constructor
+        Name: Vector4(float x, float y, float z, float w)
+             Description: The overloaded constructor for the Vector4 class.
+             Type:constructor
+        Name: DotProduct(Vector4 lhs, Vector4 rhs)
+             Description: A function that calculates the product of the Vector4 times itself.
+             Type:float
+        Name: CrossProduct(Vector4 lhs, Vector4 rhs)
+             Description: A function that calculates the cross multiplication of the Vector4 times itself.
+             Type:float
+        Name: operator +(Vector4 lhs, Vector4 rhs)
+             Description: A function that has been added on both sides.
+             Type:Vector3
+        Name: operator -(Vector4 lhs, Vector4 rhs)
+             Description: A function that has been subtracted on both sides.
+             Type:Vector3
+        Name: operator *(Vector4 lhs, float scalar)
+             Description: A function that has been multiplied by a Vector4 and a scalar.
+             Type:Vector4
+        Name: operator *(float scalar, Vector4 lhs)
+             Description: A function that has been multiplied by a scalar and a Vector4.
+             Type:Vector4
+        Name: operator /(Vector4 lhs, float scalar)
+             Description: A function that has been divided by a Vector4 and a scalar.
+             Type:Vector4

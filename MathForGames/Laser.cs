@@ -9,7 +9,6 @@ namespace MathForGames
     class Laser : Actor
     {
         private Sprite _sprite;
-        private float _speed = 8;
 
         public Laser(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.Red) : base(x, y, icon, color)
         {
